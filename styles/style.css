@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +19,7 @@ footer, #original-string {
 }
 
 #output{
-    min-height: 180px;
+    min-height: 170px;
 }
 
 
@@ -34,4 +34,3 @@ footer, #original-string {
 ::-webkit-scrollbar {
     display: none;
   }
-
