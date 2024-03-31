@@ -1,54 +1,77 @@
 let cities = ["Faisalabad", "Lahore", "Karachi", "Islamabad", "Burawala", "Shekhupura", "Kashmir"]
 
+let input = document.getElementById("input-group")
 
-// simple alert 
+
+
+// btn clear input
+function clearInput(){
+    document.getElementById("input-group").value = ""
+}
+// btn clear output
+function clearOutput(){
+    document.getElementById("output").innerHTML=""
+}
+
+
+// btn simple aler
 function simpleAlert(){
-    alert("Alert Button is Clicked")
-    document.getElementById("output").innerHTML = "alert button is clicked"
+    let simpleAlert  = input.value
+    if(!simpleAlert){
+    
+     document.getElementById("output").innerHTML="Please Enter somthing else in input-box that u wanna alert...!!!"
+    }else{
+        alert(input.value)
+        document.getElementById("output").innerHTML="This is a simple alert function"
+    }
+   
 }
 
-// print my name 
-function printName (){
-    let userName = prompt("Please Enter Your Name")
-    document.getElementById("output").innerHTML = userName ;
+// btn My name
+function myName(){
+    let myName = input.value
+   document.getElementById("output").innerHTML=input.value
+   if(!myName){
+    alert("Please Enter Your Name in input box")
+    // document.getElementById("output").innerHTML="Please Enter Your Name in input box"
+   }
 }
 
-// print all cities 
-function printAllCities(){
+// btn print all cities 
+
+function printCities(){
     document.getElementById("output").innerHTML = " "
     for (let i=0; i<cities.length; i++){
         document.getElementById("output").innerHTML += i+1 +") " + cities[i] + "<br />"
     }
 }
 
-// add city in list 
+    // btn add city 
+
 function addCity(){
-    document.getElementById("output").innerHTML = " "
-    let newCity = prompt("Please Enter City Name You Want To Add")
-    cities.push(newCity)
-
-    for (let i=0; i<cities.length; i++){
-        document.getElementById("output").innerHTML += i+1 +")" + cities[i] + "<br />"
+    let city = document.getElementById("input-group").value
+    if (!city){
+        alert("Please enter a city in input box")
+        return;
     }
+    cities.push(city)
+    document.getElementById("output").innerHTML= '<span style=color:green;> Your city has successfully been added.</span'
 }
 
-// generate table 
+// generating table 
 function generateTable(){
-    tableNumber = +prompt("Please Enter Table Number That Use Want To Generate")
-    document.getElementById("output").innerHTML = `<h3>Table of ${tableNumber}<h3/> <hr />`
-    for(let i=1; i<11; i++){
-        let table = tableNumber + " * " + i + " = " + tableNumber*i + "<br />"
-        document.getElementById("output").innerHTML += table ;
+    let number = document.getElementById("input-group").value
+    if (!number){
+        alert("Please enter a number for creating table of that number")
+        return;
     }
-}
+    let limit = +prompt("Enter table`s Limit")
+    
+    document.getElementById("output").innerHTML = " ";
+    
+    for (let index=1 ; index<=limit;index++){
+        document.getElementById("output").innerHTML += number + '*' + index + '=' + number*index + '<br>'
+    }
 
-// clear Intput button 
-function clearInput (){
-    document.getElementById("intput").innerHTML = " "
-}
-
-
-// clear output button 
-function clearOutput (){
-    document.getElementById("output").innerHTML = " "
+    
 }
